@@ -1,21 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalPotatoMovement : MonoBehaviour
+public class MashedMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public float stoppingSpeed= 0.5f;
-    public float accelerationSpeed =1f;
+    public float stoppingSpeed = 0.5f;
+    public float accelerationSpeed = 1f;
     public float jumpSpeed = 3f;
+    public float wallSlideSpeed = 0.5f;
+    public float climbSpeed = 2f;
+
     private Rigidbody2D rb;
 
     private float lastVelocity;
     float step;
     private bool stoppedMoving;
     private bool startedMoving;
+
     public LayerMask groundLayer;
     public LayerMask wall;
+
+    private bool isOnWall;
+    private bool isTouchingWallLeft;
+    private bool isTouchingWallRight;
 
     void Start()
     {
@@ -26,7 +32,13 @@ public class NormalPotatoMovement : MonoBehaviour
     {
         Vector2 velocity = rb.velocity;
 
-        if (Input.GetKey(KeyCode.D) && !Physics2D.Raycast(transform.position, Vector2.right, 2f, wall))
+        // Wall detection (short raycast on both sides)
+        isTouchingWallLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.8f, wall);
+        isTouchingWallRight = Physics2D.Raycast(transform.position, Vector2.right, 0.8f, wall);
+        isOnWall = isTouchingWallLeft || isTouchingWallRight;
+
+        // --- Movement ---
+        if (Input.GetKey(KeyCode.D))
         {
             if (!startedMoving)
             {
@@ -37,9 +49,8 @@ public class NormalPotatoMovement : MonoBehaviour
             }
             velocity.x = Mathf.Lerp(lastVelocity, speed, step);
             step += accelerationSpeed * Time.fixedDeltaTime;
-            
         }
-        else if (Input.GetKey(KeyCode.A) && !Physics2D.Raycast(transform.position, Vector2.left, 2f, wall))
+        else if (Input.GetKey(KeyCode.A))
         {
             if (!startedMoving)
             {
@@ -64,12 +75,30 @@ public class NormalPotatoMovement : MonoBehaviour
             step += stoppingSpeed * Time.fixedDeltaTime;
             step = Mathf.Clamp01(step);
         }
-        
-        if (Input.GetKey(KeyCode.Space) && Physics2D.Raycast(transform.position, Vector2.down, 1.2f, groundLayer))
+
+        // --- Wall Slide / Stick ---
+        if (isOnWall && !IsGrounded())
+        {
+            velocity.y = Mathf.Clamp(velocity.y, -wallSlideSpeed, float.MaxValue);
+
+            // --- Climb Up ---
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                velocity.y = climbSpeed;
+            }
+        }
+
+        // --- Jump ---
+        if (Input.GetKey(KeyCode.Space) && isOnWall)
         {
             velocity.y = jumpSpeed;
         }
 
         rb.velocity = velocity;
+    }
+
+    bool IsGrounded()
+    {
+        return Physics2D.Raycast(transform.position, Vector2.down, 0.6f, groundLayer);
     }
 }
