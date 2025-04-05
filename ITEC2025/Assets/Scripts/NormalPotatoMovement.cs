@@ -20,6 +20,7 @@ public class NormalPotatoMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     void FixedUpdate()
@@ -71,5 +72,16 @@ public class NormalPotatoMovement : MonoBehaviour
         }
 
         rb.velocity = velocity;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "spring")
+        {
+            Vector2 velocity = rb.velocity;
+            velocity.y = jumpSpeed * 1.5f;
+            Animator animator = collision.GetComponent<Animator>();
+            animator.SetTrigger("TouchedPotato");
+            rb.velocity = velocity;
+        }
     }
 }

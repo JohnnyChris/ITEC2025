@@ -10,6 +10,7 @@ public class MashedMovement : MonoBehaviour
     public float climbSpeed = 2f;
 
     private Rigidbody2D rb;
+    
 
     private float lastVelocity;
     float step;
@@ -26,6 +27,7 @@ public class MashedMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+       
     }
 
     void FixedUpdate()
@@ -101,4 +103,7 @@ public class MashedMovement : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 0.6f, groundLayer);
     }
+
+
+    
 }

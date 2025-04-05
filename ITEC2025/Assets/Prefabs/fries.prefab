@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 8765528220384610320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85058516, y: 0.25537425, z: 0}
+  m_LocalPosition: {x: -2.9526715, y: -2.9950178, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -258,5 +258,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 869571200778559820}
   projectilePrefab: {fileID: 6701213712921283007, guid: 474c716f9f3ab0249a5692501cd3f5aa, type: 3}
-  shootForce: 10
+  shootForce: 20
   angleFix: 0
