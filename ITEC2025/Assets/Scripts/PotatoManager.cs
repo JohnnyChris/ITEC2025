@@ -34,6 +34,16 @@ public class PotatoManager : MonoBehaviour
         if (newIndex == currentIndex || newIndex < 0 || newIndex >= objects.Length)
             return;
 
+        // Check if current object is index 1 (object 2)
+        if (currentIndex == 1)
+        {
+            MashedMain mashed = objects[1].GetComponent<MashedMain>();
+            if (mashed != null)
+            {
+                mashed.PrepareMashedForSwitch();
+            }
+        }
+
         Vector3 currentPosition = objects[currentIndex].transform.position;
 
         // Disable current
