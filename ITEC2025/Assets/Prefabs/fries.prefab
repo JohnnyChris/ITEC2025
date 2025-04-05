@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 1694427161425151038}
   - component: {fileID: 5521231992265181746}
   - component: {fileID: 897340006234963135}
-  m_Layer: 0
+  - component: {fileID: 3163602791551098255}
+  m_Layer: 13
   m_Name: fries
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 8765528220384610320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1905947, y: -0.44838443, z: 0}
+  m_LocalPosition: {x: -2.9829493, y: 2.66889, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -260,3 +261,24 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6701213712921283007, guid: 474c716f9f3ab0249a5692501cd3f5aa, type: 3}
   shootForce: 20
   angleFix: 0
+--- !u!95 &3163602791551098255
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765528220384610320}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d994be38148cd24c9f1d3fcf4905ae4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

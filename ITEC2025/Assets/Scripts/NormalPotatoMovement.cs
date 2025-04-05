@@ -16,6 +16,7 @@ public class NormalPotatoMovement : MonoBehaviour
     private bool startedMoving;
     public LayerMask groundLayer;
     public LayerMask wall;
+    public LayerMask fry;
 
     void Start()
     {
@@ -66,7 +67,7 @@ public class NormalPotatoMovement : MonoBehaviour
             step = Mathf.Clamp01(step);
         }
         
-        if (Input.GetKey(KeyCode.Space) && Physics2D.Raycast(transform.position, Vector2.down, 1.2f, groundLayer))
+        if (Input.GetKey(KeyCode.Space) && (Physics2D.Raycast(transform.position, Vector2.down, 1.2f, groundLayer) || Physics2D.Raycast(transform.position, Vector2.down, 1.2f, fry)))
         {
             velocity.y = jumpSpeed;
         }
@@ -83,5 +84,10 @@ public class NormalPotatoMovement : MonoBehaviour
             animator.SetTrigger("TouchedPotato");
             rb.velocity = velocity;
         }
+    }
+
+    public void DestroyPotato()
+    {
+        Destroy(gameObject);
     }
 }

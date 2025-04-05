@@ -1,4 +1,8 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AimAndShoot : MonoBehaviour
 {
@@ -72,5 +76,14 @@ public class AimAndShoot : MonoBehaviour
             Vector2 direction = arrow.transform.right;
             rb.velocity = direction * shootForce;
         }
+
+      
     }
+
+    public void DestroyPotato()
+    {
+        Destroy(gameObject);
+    }
+
+  
 }

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8044914454482365443}
   - component: {fileID: 768498253147548765}
   - component: {fileID: 2920156870158805396}
+  - component: {fileID: 369767529357418839}
   m_Layer: 0
   m_Name: potato
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7575247794961822336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24957037, y: -3.5112665, z: 0}
+  m_LocalPosition: {x: -1.2586558, y: 2.9280572, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,6 +110,9 @@ MonoBehaviour:
   wall:
     serializedVersion: 2
     m_Bits: 1024
+  fry:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!50 &768498253147548765
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +175,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.032661676, y: -0.032661676}
   m_Size: {x: 0.6802592, y: 0.93467665}
   m_Direction: 0
+--- !u!95 &369767529357418839
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575247794961822336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2958151f86d04b041af8d770b4b48d45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

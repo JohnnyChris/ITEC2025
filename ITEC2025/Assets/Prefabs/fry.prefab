@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1109457319848674818}
   - component: {fileID: 4945825074460511017}
   - component: {fileID: 6888942652764247216}
-  m_Layer: 0
+  - component: {fileID: 3805953669958073837}
+  - component: {fileID: -5049980473491990689}
+  m_Layer: 12
   m_Name: fry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,3 +114,68 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &3805953669958073837
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701213712921283007}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.056309223, y: 0.20383827}
+      - {x: -0.19988155, y: -0.057628095}
+      - {x: -0.20251942, y: -0.13250971}
+      - {x: -0.1364665, y: -0.19328701}
+      - {x: -0.10825825, y: -0.18669248}
+      - {x: 0.18273568, y: 0.10562013}
+      - {x: 0.17614102, y: 0.15361218}
+      - {x: 0.10217476, y: 0.21570843}
+  m_UseDelaunayMesh: 0
+--- !u!114 &-5049980473491990689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701213712921283007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e001d41dde40574dab4ba9af7cb3dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

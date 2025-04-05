@@ -36,5 +36,10 @@ public class MashedMain : MonoBehaviour
         transform.position = pos;
     }
 
-    
+    public void DestroyPotato()
+    {
+        Destroy(gameObject);
+    }
+
+
 }
