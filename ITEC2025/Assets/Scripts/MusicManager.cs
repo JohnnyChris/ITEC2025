@@ -20,4 +20,14 @@ public class MusicManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public void StopMusic()
+    {
+        GetComponent<AudioSource>().Stop();
+    }
+
+    public void StartMusic()
+    {
+        GetComponent<AudioSource>().Play();
+    }
 }
