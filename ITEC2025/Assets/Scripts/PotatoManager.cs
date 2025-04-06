@@ -96,8 +96,15 @@ public class PotatoManager : MonoBehaviour
 
     void SwitchTo(int newIndex)
     {
+        if (currentIndex == newIndex)
+        {
+            return;
+        }
+
         Vector2 currentVelocity; 
         Vector2 lastPosition;
+
+
         if (currentIndex == 1)
         {
             GameObject bone = GameObject.FindGameObjectWithTag("spawnBone");
@@ -127,5 +134,7 @@ public class PotatoManager : MonoBehaviour
             else {
                 currentShape.GetComponent<Rigidbody2D>().velocity = currentVelocity;
             }
+
+       
     }
 }
