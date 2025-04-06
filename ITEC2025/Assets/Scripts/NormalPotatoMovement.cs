@@ -27,8 +27,20 @@ public class NormalPotatoMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 velocity = rb.velocity;
-
-        if (Input.GetKey(KeyCode.D) && !Physics2D.Raycast(transform.position, Vector2.right, 2f, wall))
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A))
+        {
+            if (!stoppedMoving)
+            {
+                step = 0;
+                lastVelocity = velocity.x;
+                stoppedMoving = true;
+                startedMoving = false;
+            }
+            velocity.x = Mathf.Lerp(lastVelocity, 0, step);
+            step += stoppingSpeed * Time.fixedDeltaTime;
+            step = Mathf.Clamp01(step);
+        }
+        else if (Input.GetKey(KeyCode.D) && !Physics2D.Raycast(transform.position, Vector2.right, 2f, wall))
         {
             if (!startedMoving)
             {
