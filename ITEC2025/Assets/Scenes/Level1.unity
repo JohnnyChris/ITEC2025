@@ -2059,6 +2059,10 @@ PrefabInstance:
       value: MusicManager
       objectReference: {fileID: 0}
     - target: {fileID: 3366476003818573395, guid: 07eb33e0fa060c1438878bbe99738237, type: 3}
+      propertyPath: m_Volume
+      value: 0.427
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366476003818573395, guid: 07eb33e0fa060c1438878bbe99738237, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
