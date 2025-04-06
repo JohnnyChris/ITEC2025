@@ -41,5 +41,4 @@ public class MashedMain : MonoBehaviour
         Destroy(gameObject);
     }
 
-
 }

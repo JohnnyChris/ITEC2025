@@ -99,6 +99,20 @@ public class MashedMovement : MonoBehaviour
         rb.velocity = velocity;
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "spring")
+        {
+            collision.GetComponent<AudioSource>().Play();
+            Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
+            velocity.y = 60f;
+            Animator animator = collision.GetComponent<Animator>();
+            animator.SetTrigger("TouchedPotato");
+            GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+    }
+
     bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 0.6f, groundLayer);

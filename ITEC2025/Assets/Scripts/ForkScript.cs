@@ -11,6 +11,7 @@ public class ForkScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Animator animator = collision.gameObject.GetComponent<Animator>();
+            collision.gameObject.GetComponent<AudioSource>().Play();
             animator.SetTrigger("touchedFork");
             StartCoroutine(ReloadSceneCoroutine());
         }
@@ -27,15 +28,13 @@ public class ForkScript : MonoBehaviour
 
                 Animator animator = parent.GetComponent<Animator>();
 
-                
-                    animator.SetTrigger("touchedFork");
+                parent.gameObject.GetComponent<AudioSource>().Play();
+                animator.SetTrigger("touchedFork");
                 
 
                 StartCoroutine(ReloadSceneCoroutine());
             }
         }
-        Debug.Log("#######");
-        Debug.Log(collision.gameObject.tag);
 
     }
 

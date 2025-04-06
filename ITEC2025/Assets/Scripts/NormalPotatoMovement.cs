@@ -17,6 +17,7 @@ public class NormalPotatoMovement : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask wall;
     public LayerMask fry;
+    
 
     void Start()
     {
@@ -49,6 +50,7 @@ public class NormalPotatoMovement : MonoBehaviour
                 startedMoving = true;
                 stoppedMoving = false;
             }
+            
             velocity.x = Mathf.Lerp(lastVelocity, speed, step);
             step += accelerationSpeed * Time.fixedDeltaTime;
             
@@ -62,6 +64,7 @@ public class NormalPotatoMovement : MonoBehaviour
                 startedMoving = true;
                 stoppedMoving = false;
             }
+            
             velocity.x = Mathf.Lerp(lastVelocity, -speed, step);
             step += accelerationSpeed * Time.fixedDeltaTime;
         }
@@ -90,6 +93,7 @@ public class NormalPotatoMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "spring")
         {
+            collision.GetComponent<AudioSource>().Play();
             Vector2 velocity = rb.velocity;
             velocity.y = jumpSpeed * 1.5f;
             Animator animator = collision.GetComponent<Animator>();

@@ -80,6 +80,20 @@ public class AimAndShoot : MonoBehaviour
       
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "spring")
+        {
+            collision.GetComponent<AudioSource>().Play();
+            Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
+            velocity.y = 15f;
+            Animator animator = collision.GetComponent<Animator>();
+            animator.SetTrigger("TouchedPotato");
+            GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+    }
+
+
     public void DestroyPotato()
     {
         Destroy(gameObject);
